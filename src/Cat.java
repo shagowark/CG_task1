@@ -2,13 +2,14 @@ import java.awt.*;
 import java.awt.geom.GeneralPath;
 
 public class Cat {
-    private int x, y, xLength;
+    private int x, y, xLength, yLength;
     private Color c;
 
     public Cat(int x, int y, int xLength, Color c) {
         this.x = x;
         this.y = y;
         this.xLength = xLength;
+        this.yLength = xLength/2;
         this.c = c;
     }
 
@@ -48,7 +49,7 @@ public class Cat {
         Color oldColor = g.getColor();
         Stroke oldStroke = g.getStroke();
 
-        int yLength = xLength/2;
+
         //задние ноги
         g.setColor(Color.BLACK);
         g.drawLine(x+xLength/8, y+yLength/4*3, x, y+yLength/4*5);
