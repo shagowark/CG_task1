@@ -44,6 +44,16 @@ public class Cloud {
     }
 
     public void drawCloud(Graphics2D g){
-        DrawUtils.drawCloud(g, x, y, r, c);
+        Color oldColor = g.getColor();
+        Stroke oldStroke = g.getStroke();
+
+        g.setColor(c);
+        g.fillOval(x-r, y-r, r*2, r);
+        g.setColor(Color.BLACK);
+        g.setStroke(new BasicStroke(2));
+        g.drawOval(x-r, y-r, r*2, r);
+
+        g.setColor(oldColor);
+        g.setStroke(oldStroke);
     }
 }

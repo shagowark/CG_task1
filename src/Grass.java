@@ -1,4 +1,5 @@
 import java.awt.*;
+import java.awt.geom.GeneralPath;
 
 public class Grass {
     private int x, y;
@@ -34,7 +35,19 @@ public class Grass {
         this.c = c;
     }
 
-    public void drawGrass(Graphics2D g){
-        DrawUtils.drawGrass(g, x, y, c);
+    public void drawGrass(Graphics2D g) {
+        Color oldColor = g.getColor();
+
+        g.setColor(c);
+        GeneralPath path = new GeneralPath();
+        path.moveTo(x, y);
+        path.curveTo(x - 10, y , x - 20, y - 15, x - 30, y - 30);
+        path.moveTo(x, y);
+        path.curveTo(x + 10, y , x + 20, y - 15, x + 30, y - 30);
+        path.moveTo(x, y);
+        path.lineTo(x, y - 40);
+        g.draw(path);
+
+        g.setColor(oldColor);
     }
 }
