@@ -109,8 +109,10 @@ public class Cat {
         g.setStroke(new BasicStroke(5));
         g.setColor(c);
         GeneralPath path = new GeneralPath();
-        path.moveTo(x+xLength/6, y+yLength/6);
-        path.curveTo(x+xLength/6, y+yLength/6, x-xLength/3, y, x+xLength/4, y-yLength/4);
+        path.moveTo(x, y+yLength/2);
+        path.curveTo(x, y+yLength/2, x-xLength/3, y, x+xLength/4, y-yLength/4);
+        //path.moveTo(x+xLength/6, y+yLength/6);
+        //path.curveTo(x+xLength/6, y+yLength/6, x-xLength/3, y, x+xLength/4, y-yLength/4);
         g.setColor(Color.BLACK);
         g.setStroke(new BasicStroke(8));
         g.draw(path);
@@ -127,7 +129,8 @@ public class Cat {
         double theta1 = Math.atan(-tgA1);
         g.setColor(Color.BLACK);
         g.rotate(theta1, x,  y+yLength/4*5);
-        g.fillRect(x-1,  y+yLength/4*5, xLength/15, xLength/12);
+        g.fillRect(x-1,  y+yLength/4*5, xLength/8, xLength/20);
+        g.fillRect(x-1,  y+yLength/4*5, xLength/15, xLength/10);
         g.rotate(-theta1, x,  y+yLength/4*5);
         //g.drawLine(x+xLength/4, y+yLength/4*3, x+xLength/8*3, y+yLength/4*5);
         double xCathet2 = Math.abs(x+xLength/4 - x+xLength/8*3);
@@ -136,7 +139,8 @@ public class Cat {
         double theta2 = Math.atan(-tgA2) - 1.55;
         g.setColor(Color.BLACK);
         g.rotate(theta2, x+xLength/8*3,  y+yLength/4*5);
-        g.fillRect(x+xLength/8*3-1,  y+yLength/4*5, xLength/15, xLength/12);
+        g.fillRect(x+xLength/8*3-1,  y+yLength/4*5, xLength/8, xLength/20);
+        g.fillRect(x+xLength/8*3-1,  y+yLength/4*5, xLength/15, xLength/10);
         g.rotate(-theta2, x+xLength/8*3,  y+yLength/4*5);
 
         g.setColor(oldColor);
